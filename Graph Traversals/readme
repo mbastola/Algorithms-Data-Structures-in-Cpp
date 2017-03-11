@@ -1,0 +1,73 @@
+This project contains 3 programs. Allof them can be compiled at once by doing
+
+>>make all
+
+else:
+
+1)suggestwords.cc 
+ Its a lightweight spell checker that suggests a words that are similar to a given string. It takes three command line
+arguments: a filename, a string, and an integer edit-distance threshold and prints the similar srtings to the terminal.
+
+
+to compile:
+
+>>make suggestwords
+
+to run:
+
+>>./suggestwords filein word threshold
+
+------------------------------------------------------------------------------
+
+2)shortestpath.cc
+
+shortestpath.cc takes two command-line arguments: an input filename and the index
+of the source vertex. The filein contains the graph in adjacency matrix which is then read by readGraph function in readGraph.cc file.
+then it uses shortestPath function in bellmanford.cc to print the shortest paths and corresponding costs to the terminal. negative cycles are treated as per required.
+
+
+to compile:
+
+>>make shortestpath
+
+to run:
+
+>>./shortestpath filein vertex
+
+
+
+-----------------------------------------------------------------------
+
+3) currencyexchange.cc
+
+Takes two command-line arguments: an input filename and the index
+of the source vertex. The filein contains the graph in adjacency matrix which is then read by readExchangeRates function in readGraph.cc file.
+then it uses shortestPath function in bellmanford.cc to print the shortest paths and corresponding costs to the terminal.
+
+to compile:
+
+>>make currencyexchange
+
+to run:
+
+>>./curencyexchange filein vertex
+
+---------------------------------------------------------------------------
+
+Possible issues:
+
+not sure if my shortest path for negative cycle is perfect.
+
+--------------------------------------------------------------------------
+
+Analysis:
+
+When the transaction cost was nil,the negative cycle existed in the given file exchnagerates.txt.However, the total weight of the cycle was 1. This implies the exchange rates are sane and one can not make profit out of the arbitrage.here,
+
+>>./currencyexchange exchangerates.txt 4 0
+Cycle: EUR -> GLD -> CHF -> GBP -> EUR
+Total Weight: 1
+
+Here all the weights are the log(exchange rates) which represented by computer as floating points.However when printing it the numbers are rounded down to nearnest integer. The rounded down value of the total weight is 0. Then exp(0)==1 giving the total weight 1.
+
+Here, we saw a negative cycle when transaction cost was 0. Thus the transaction cost helped in not letting negative cycles to emerge.This could be very crucial in freely floating exchange rate markets where exchage rates change due to daily trade of economy i.e they fluctuate rapidly. Arbitrages may arise due to such fluctuations and not all times the profits are 0. Thus well thought transaction fees should help to stabilize the market by cutting arbitarge opprotunities. 

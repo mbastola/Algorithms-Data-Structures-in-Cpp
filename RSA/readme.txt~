@@ -1,0 +1,59 @@
+##Files:
+
+Makefile
+codonDecrypt.cc
+codonEncrypt.cc
+encrypt.cc
+decrypt.cc
+keyGen.cc
+numberTheory.cc
+numberTheory.h
+transform.cc
+transform.h
+
+##I have made rules in the make file so that the only compiling that
+needs to be done is: 
+
+make all
+
+Then you can use:
+
+make clean 
+
+to clean all unnecessary files.
+----------------------------------------------
+##cmd argumemts:
+
+>>./keyGen {Prime1} {Prime2}
+>>./encrypt private.txt {fileToBeEncypted} {encryptedFile}
+>>./decrypt public.txt {fileToBeDecypted} {decryptedFile}
+
+In the end  {fileToBeEncypted}=={decryptedFile}
+-------------------------------------------------------------------
+for CODONS:
+
+>>./keyGen {Prime1} {Prime2}
+>>./codonEncrypt private.txt {fileToBeEncypted} {encryptedFile}
+>>./codonDecrypt public.txt {fileToBeDecypted} {decryptedFile}
+
+In the end  {fileToBeEncypted}=={decryptedFile}
+----------------------------------------------------------------------------
+##BUGS!
+#My is prime gives funny answer when 0 is mixed with large
+  integer. It shows 0 to be a non prime but when you input large
+  number with keyGen example
+
+>> ./keyGen (aLargePrimeNumber) 0
+
+will give me floating point exception error.It works fine with other
+numbers.
+---------------------------------------------------------------------------
+#Sometimes my Codons act funny. They act fine i.e encrypt and decrypt
+ both give me correct answer but sometimes decrypt was unable to
+ get some of the alphabets back(in one test, 3 chars in of a paragraph werent
+ decrpted properly).I think there is some issue with my
+ codonEncrypt.cc as I get a wierd character after every trplet of
+ digits. 
+
+
+

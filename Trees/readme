@@ -1,0 +1,24 @@
+Treetime.cc tests the times taken by both Red Black Tree and its subclass Binary Search Tree to insert fisrt strictly increasing numbers and then random numbers. It creates random integers in range 256 and then explicitly converts them to unsgined chars. Then it perfoms bitwise manipulations to get long random numbers.
+
+To compile:
+
+>>make treetime
+
+To run:
+
+>>./treetime batchSize numBatches
+
+Note: in the Makefile there are other rules for other independent test files which wont work as I didnt include them in the final submission.
+
+------------------------------------------------------------
+
+Possible Issues:
+
+#Slow insertion when batchSize > 100000. I attribute it to inefficiency of BinarySearchTree.
+#I didnt use random numbers with greater value than sys max of longs because when I tried value of sys max of long longs the insertions were very slow. Maybe due to this out of every 1000 batchSize 9998 was aevrage insertions while there is a repeat of random numbers which increases with batchSize.
+
+--------------------------------------------------------------
+
+Analysis:
+
+RBTree works best with strictly increasing insertions. Because of its insert fix up function that maintains the tree's height it is able to maintain log(n) efficiency while binary search tree had linear performance. With random numbers both of them did similar job. However, I would say binary trees whould work faster hadnt they been, in this case, the sub class of RBtree which already has much space overhead. But in this case they both had similar performance. 

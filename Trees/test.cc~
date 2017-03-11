@@ -1,0 +1,29 @@
+#include "RBTree.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+   RBTree<int,string> charTree;
+   charTree.insert(1,"a");
+   charTree.insert(7,"b");
+   charTree.insert(69,"c");
+   charTree.insert(53,"d");
+   charTree.insert(13,"e");
+   charTree.insert(10,"f");
+   charTree.insert(2,"g");
+   charTree.insert(100,"h");
+   charTree.remove(13);
+   charTree.remove(69);
+   charTree.remove(7);
+   charTree.remove(53);
+   charTree.remove(10);
+   charTree.remove(2);
+   charTree.remove(100);
+   charTree.remove(1);
+   charTree.remove(0);
+   charTree.remove(5);
+   charTree.printDOT("rbtree.dot");
+}

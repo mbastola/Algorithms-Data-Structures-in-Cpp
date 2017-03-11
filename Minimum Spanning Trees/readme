@@ -1,0 +1,50 @@
+This project contains 3 programs. The first one is
+
+matrixtest.cc
+
+This program tests the given matrix created by the readGraph function by taking in a input file that has necessary info about the graph and prints the adj matrix to the terminal.
+
+To compile:
+
+>> make matrixtest
+
+To run:
+
+>> ./matrixtest filein 
+
+--------------------------------------------------------------------
+
+listtest.cc
+
+This program tests the given adj list created bu readGraph function by taking in a input file that has necessary info about the graph and prints the adj list, the corresponding weight list and the lenght list to the terminal.
+
+To compile:
+
+>> make listtest
+
+To run:
+
+>> ./listtest filein 
+
+--------------------------------------------------------------------
+
+mst.cc
+
+This is the main program that checks the minimum spanning tree created by the prims implementation for 1)adj matrix and 2) adj graph.
+
+if the number commandline argument is 4 where the 4th argument is 'l' the main function implements prims algorithm for list else, matrix.
+
+It takes other two parameters from command prompt, filein and fileout.
+ 
+It reads the graph from filein and prints the minimum distace to temrinal while the minimum spanning edge to the fileout
+
+To compile:
+
+>> make mst
+
+to run:
+
+>>./mst filein fileout (l)   #l is optional
+
+
+

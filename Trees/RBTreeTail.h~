@@ -1,0 +1,26 @@
+#ifndef RB_TREE_SENTINEL_H
+#define RB_TREE_SENTINEL_H
+#include "RBTreeNode.h"
+
+template <class key_t,class val_t>
+class RBTreeSentinel:public RBTreeNode<key_t,val_t>
+{
+  public:
+   RBTreeSentinel();
+   virtual bool isSentinel() const;
+};
+
+template <class key_t,class val_t>
+RBTreeSentinel<key_t,val_t>::RBTreeSentinel():RBTreeNode<key_t,val_t>()
+{
+   color = true;
+}
+
+template <class key_t,class val_t>
+bool RBTreeSentinel<key_t,val_t>::isSentinel() const
+{
+   return true;
+}
+
+#endif
+

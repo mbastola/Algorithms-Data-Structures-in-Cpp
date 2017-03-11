@@ -1,0 +1,68 @@
+
+This project contains 3 programs. The command 'make all' will
+compile all 3. Alternatively, you may compile each one separately
+according to directions below.
+
+----linkedlisttimes-----
+
+This program finds the times taken by linkedlists to perform tasks of
+appending,prepending, inserting and accessing the elements by linked
+list. This can be called by
+
+>>./linkedlisttimes operation(i.e. a,p,i or x ) numBatches numPerBatch
+  fileOut
+
+to compile:
+
+make linkedlisttimes
+
+------arraylisttimes---
+Similarly, this program do the same with arraylists. 
+
+>>./arraylisttimes operation(i.e. a,p,i or x ) numBatches numPerBatch
+  fileOut
+
+to compile:
+
+make arraylisttimes
+
+----testArrayList-----
+
+This was the rule I made to test my arrayList template. I used test.cc as my test file which as number of methods which check whether the template is working or not.To call it
+
+>>./testArrayList
+
+to compile:
+
+make testArrayList
+--------------------------------------------------------------
+
+Known Issues;
+
+I am not entirely sure that my linked list is completely free of memory leakage. This is because it didnt create the output file with 100x1,000,000 list size. The program was killed by the terminal because the cpu went 100% and memory went 54-66%. Had to restart my computer to perform this task again which worked.
+
+
+--------------------------------------------------------------
+
+Analysis:
+
+Appends:
+	
+Array List worked best in this case. They had constant time popback() as the length pointer was always maintained at the end of the list. However, one can see sharp peaks at every 1000000 size increase beacuse the list was implemented in such a way that it made new copies of itself of twice its size and copied all elements to that new copy when length was greater than capacity. Linked list also maintained efficiency of O(1) but the overheads of making new nodes and storing them made them slightly inefficient to array lists. Interestingly python lists did worse than the linked lists but had lesser bumps.This could attribute to 
+
+Prepends:
+
+Due to easy creation of new nodes in the front due to pushFront option linked lists performed way better in this case. They maintained O(1) effciency. However, due to the need of shifting the elements, array lists performed poorly in this case. Python lists were way better than the array lists but they were also O(n).
+
+Inserts:
+
+All the insert methods were O(n). This is because the list has to shift its elements as the inserts happened. The array list perfromed poorly with its peaks due to the copying elements into new list factor. The linked didnt have to copy itself so it performed better. Python list performed the best in this case.
+
+Accesses:
+
+This is where the linked lists performed very poorly compared to other types. Since python lists are arrays and array list are arrays they have pointers that are easily accessible to any index by using pointer arithmetic(addition). However, linked lists had different pointers to each nodes and had to go through each node to reach the index. This led it to be O(n) while python and array lists maintained O(1).
+
+
+-------------------------------------------------------------
+
+
